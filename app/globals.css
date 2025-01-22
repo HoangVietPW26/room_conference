@@ -79,7 +79,7 @@
 }
 
 .cl-providerIcon__github {
-  color: white
+  filter: invert(1)
 }
 
 /* =============================== */
