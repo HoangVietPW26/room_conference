@@ -1,5 +1,4 @@
 "use client"
-import Image from 'next/image'
 import React from 'react'
 import HomeCard from './HomeCard'
 import { useState } from 'react'
@@ -10,6 +9,8 @@ import { useToast } from '@/hooks/use-toast'
 import { Call, useStreamVideoClient } from '@stream-io/video-react-sdk'
 import { Textarea } from './ui/textarea'
 import ReactDatePicker from 'react-datepicker'
+import { Input } from './ui/input'
+
 const MeetingTypeList = () => {
 
     const [meetingState, setMeetingState] = useState<'isScheduleMeeting' | 'isJoiningMeeting' | 'isInstantMeeting' | undefined>();
@@ -153,6 +154,22 @@ const MeetingTypeList = () => {
             className='text-center'
         />
         )}
+
+        <MeetingPopUp
+            isOpen={meetingState === 'isJoiningMeeting'}
+            onClose={() => setMeetingState(undefined)}
+            title="Type the link here"
+            className="text-center"
+            buttonText="Join Meeting"
+            handleClick={() => router.push(values.link)}
+        >
+        <Input
+          placeholder="Meeting link"
+          onChange={(e) => setValues({ ...values, link: e.target.value })}
+          className="border-none bg-dark-3 focus-visible:ring-0 focus-visible:ring-offset-0"
+        />
+        </MeetingPopUp>
+
         <MeetingPopUp 
             isOpen={meetingState === 'isInstantMeeting'}
             onClose={() => setMeetingState(undefined)}
