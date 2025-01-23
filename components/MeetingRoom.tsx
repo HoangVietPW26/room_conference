@@ -15,7 +15,7 @@ import { useSearch } from '@stream-io/video-react-sdk/dist/src/components/Search
 import { useSearchParams } from 'next/navigation';
 import EndCallButton from './EndCallButton';
 import Loader from './Loader';
-  
+import { useRouter } from 'next/navigation';
 
 type CallLayoutType = 'speaker-left' | 'speaker-right' | 'grid' | 'gallery'
 const MeetingRoom = () => {
@@ -26,7 +26,7 @@ const MeetingRoom = () => {
     const isPersonalRoom = !!searchParams.get('personal')
     const { useCallCallingState } = useCallStateHooks()
     const callingState = useCallCallingState()
-
+    const router = useRouter()
     if (callingState !== CallingState.JOINED) return <Loader />
 
     const CallLayout = () => {
@@ -52,7 +52,7 @@ const MeetingRoom = () => {
         </div>
 
         <div className='fixed bottom-0 flex w-full items-center justify-center gap-5 flex-wrap' >
-            <CallControls />
+            <CallControls onLeave={()=>router.push("/")}/>
             
             <DropdownMenu>
                 <div className='flex items-center'>
