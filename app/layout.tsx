@@ -32,6 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ClerkProvider
+        afterSignOutUrl="/sign-in"
         appearance={{
           layout: {
             logoImageUrl: '/icons/yoom-logo.svg',
