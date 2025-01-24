@@ -1,4 +1,12 @@
-import { CallControls, CallingState, CallParticipantsList, CallStatsButton, PaginatedGridLayout, SpeakerLayout, useCallStateHooks } from '@stream-io/video-react-sdk';
+import { 
+    CallControls, 
+    CallingState, 
+    CallParticipantsList, 
+    CallStatsButton, 
+    PaginatedGridLayout, 
+    SpeakerLayout, 
+    useCallStateHooks 
+} from '@stream-io/video-react-sdk';
 import React from 'react'
 import { useState } from 'react'
 import { cn } from '@/lib/utils';
@@ -6,12 +14,10 @@ import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
-    DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { LayoutList, User } from 'lucide-react';
-import { useSearch } from '@stream-io/video-react-sdk/dist/src/components/Search/hooks';
 import { useSearchParams } from 'next/navigation';
 import EndCallButton from './EndCallButton';
 import Loader from './Loader';
@@ -57,7 +63,7 @@ const MeetingRoom = () => {
             <DropdownMenu>
                 <div className='flex items-center'>
                 <DropdownMenuTrigger className='cursor-pointer rounded-2xl bg-[#19232d] px-4 py-2 hover:bg-[#4x535b]'>
-                    <LayoutList size={20} className='"text-white' />
+                    <LayoutList size={20} className='text-white' />
                 </DropdownMenuTrigger>
                 </div>
                 <DropdownMenuContent className='border-dark-1 text-white bg-dark-1'>

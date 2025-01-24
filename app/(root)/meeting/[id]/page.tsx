@@ -7,9 +7,11 @@ import MeetingSetup from '@/components/MeetingSetup'
 import MeetingRoom from '@/components/MeetingRoom'
 import { useGetCallById } from '@/hooks/useGetCallById'
 import Loader from '@/components/Loader'
+import { use } from 'react'
 
-const Meeting = ({params: {id}}: {params: {id: string}}) => {
+const Meeting = ({params}: {params: Promise<{id: string}>}) => {
 
+  const id = use(params).id;
   const {user, isLoaded} = useUser()
   const [isSetUpCompleted, setIsSetUpCompleted] = useState(false);
   const {call, isCallLoading} = useGetCallById(id)

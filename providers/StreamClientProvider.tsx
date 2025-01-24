@@ -24,21 +24,22 @@ const StreamVideoProvider = ({children}: {children : React.ReactNode}) => {
         if(!isLoaded || !user) return
         if(!apiKey) throw new Error('Stream API Key is required')
         
+        console.log(user?.fullName)
         const client = new StreamVideoClient({
             apiKey,
             user: {
                 id: user?.id,
-                name: user?.username || user?.id,
+                name: user?.username || user?.fullName || user?.id,
                 image: user?.imageUrl
             },
-           tokenProvider
+            tokenProvider
         })
 
         setVideoClient(client)
     },[user, isLoaded])
 
     return (
-      <StreamVideo client={videoClient}>
+      <StreamVideo client={videoClient!}>
         {children}
       </StreamVideo>
     )

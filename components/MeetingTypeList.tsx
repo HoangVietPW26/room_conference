@@ -11,12 +11,13 @@ import { Textarea } from './ui/textarea'
 import ReactDatePicker from 'react-datepicker'
 import { Input } from './ui/input'
 
+
 const MeetingTypeList = () => {
 
     const [meetingState, setMeetingState] = useState<'isScheduleMeeting' | 'isJoiningMeeting' | 'isInstantMeeting' | undefined>();
     const { toast } = useToast()
     const router = useRouter()
-    const user = useUser()
+    const { user } = useUser();
     const client = useStreamVideoClient()
 
     const [values, setValues] = useState({
@@ -29,8 +30,19 @@ const MeetingTypeList = () => {
 
     const createMeeting = async() => {
 
-        console.log(client, user)
-        if(!client || !user) return
+        console.log(client)
+        console.log("****")
+        console.log(user)
+
+        if(!client || !user) {
+            if(!user) {
+                toast({
+                    title: 'User not found',
+                })
+                router.push('/sign-in')
+            }
+            return
+        }
 
         try {
 
@@ -41,7 +53,7 @@ const MeetingTypeList = () => {
                 return
             }
             const id = crypto.randomUUID()
-            const call = client.call('default', id)
+            const call = client?.call('default', id)
 
             if (!call) throw new Error('Call not created')
 

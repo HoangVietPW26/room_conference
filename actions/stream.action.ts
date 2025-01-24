@@ -18,7 +18,11 @@ export const tokenProvider = async () => {
 
     const issued = Math.floor(Date.now() / 1000) - 60
 
-    const token = client.createToken(user.id, exp, issued)
+    const token = client.generateUserToken({
+        user_id: user.id, 
+        exp: exp, 
+        iat: issued
+    })
 
     return token
 }
