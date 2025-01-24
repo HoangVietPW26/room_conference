@@ -35,12 +35,6 @@ const MeetingTypeList = () => {
         console.log(user)
 
         if(!client || !user) {
-            if(!user) {
-                toast({
-                    title: 'User not found',
-                })
-                router.push('/sign-in')
-            }
             return
         }
 
