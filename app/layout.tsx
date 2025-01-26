@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   title: "Room",
   description: "Video Calling App",
   icons: {
-    icon: "/icons/logo.svg",
+    icon: "/icons/room-favi-logo.png",
   }
 };
 
