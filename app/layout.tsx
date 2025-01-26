@@ -35,7 +35,7 @@ export default function RootLayout({
         afterSignOutUrl="/sign-in"
         appearance={{
           layout: {
-            logoImageUrl: '/icons/yoom-logo.svg',
+            logoImageUrl: '/icons/room-logo.png',
             socialButtonsVariant: 'iconButton'
           },
           variables: {

@@ -18,12 +18,12 @@ const MobileNav = () => {
     <section className='w-full max-w-[264px]'>
     <Sheet>
         <SheetTrigger asChild>
-            <Image src='/icons/hamburger.svg' width={36} height={36} alt='Menu' className='cursor-pointer' />
+            <Image src='/icons/hamburger.svg' width={36} height={36} alt='Menu' className='cursor-pointer'/>
         </SheetTrigger>
         <SheetContent side='left' className='border-none bg-dark-1'>
             <Link href='/' className='flex items-center gap-1'>
-                <Image src='/icons/logo.svg' width={24} height={24} alt='Logo' className='max-sm:size-10' />
-                <p className='text-[26px] font-extrabold text-white'>Room</p>
+                <Image src='/icons/room-favi-logo.png' width={36} height={36} alt='Logo' className='max-sm:size-10 mt-1' />
+                <p className='text-[26px] font-extrabold text-white'>ROOM</p>
             </Link>
             <div className='flex h-[calc(100vh-72px)] flex-col justify-between overflow-y-auto'>
                 <SheetClose asChild>
@@ -35,7 +35,7 @@ const MobileNav = () => {
                                 <Link 
                                 href={link.route} 
                                 key={link.label} 
-                                className={cn('flex gap-4 items-center p-4 rounded-lg w-full max-w-60', {
+                                className={cn('flex gap-4 items-center p-4 rounded-[6px] w-full max-w-60', {
                                     'bg-blue-1': isActive
                                 })}
                                 >
